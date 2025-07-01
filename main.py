@@ -15,15 +15,20 @@ def sort_on(items):
 
 def main():
     numWords = get_num_of_words(get_book_text("books/frankenstein.txt"))
-    print(f"{numWords} words found in the document")
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at books/frankenstein.txt...")
+    print("----------- Word Count ----------")
+    print(f"Found {numWords} total words")
+    print("--------- Character Count -------")
     charactersDict = get_num_of_characters(get_book_text("books/frankenstein.txt"))
     #print(characters)
     listOfCharDicts = dict_to_list(charactersDict)
     listOfCharDicts.sort(reverse=True, key=sort_on)
     for item in listOfCharDicts:
-        print(f"{item["char"]} : {item["count"]}")
+        if item["char"].isalpha():
+            print(f"{item["char"]}: {item["count"]}")
 
-
+    print("============= END ===============") 
 
 main()
 
