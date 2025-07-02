@@ -20,13 +20,14 @@ def main():
         sys.exit(1)
 
     filepath = sys.argv[1] 
+    print(filepath)
     numWords = get_num_of_words(get_book_text(filepath))
     print("============ BOOKBOT ============")
-    print(f"Analyzing book found at books/frankenstein.txt...")
+    print(f"Analyzing book found at {filepath}...")
     print("----------- Word Count ----------")
     print(f"Found {numWords} total words")
     print("--------- Character Count -------")
-    charactersDict = get_num_of_characters(get_book_text("books/frankenstein.txt"))
+    charactersDict = get_num_of_characters(get_book_text(filepath))
     #print(characters)
     listOfCharDicts = dict_to_list(charactersDict)
     listOfCharDicts.sort(reverse=True, key=sort_on)
